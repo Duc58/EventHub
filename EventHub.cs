@@ -11,6 +11,11 @@ public class EventHub
     {
         typeof(Signal.PurchaserInitialized)
     };
+    
+    public static void AddOptionalEventType(Type type)
+    {
+        optionalEventTypes.Add(type);
+    }
 
     public static void Subscribe<TSignal>(Action<TSignal> callback)
     {
