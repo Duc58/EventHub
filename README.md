@@ -21,6 +21,8 @@ public class A: MonoBehaviour {
 2. Fire event:
 ```C#
 public class B {
-  EventHub.Fire<ShowAdsEvent>();
+  private void FireEvent() {
+    EventHub.Fire<ShowAdsEvent>();
+  }
 }
 ```
