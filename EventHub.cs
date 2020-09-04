@@ -11,7 +11,7 @@ public class EventHub
     {
         typeof(Signal.PurchaserInitialized)
     };
-    
+
     public static void AddOptionalEventType(Type type)
     {
         optionalEventTypes.Add(type);
@@ -36,6 +36,8 @@ public class EventHub
         if (eventDictionary.ContainsKey(typeof(TSignal)))
         {
             eventDictionary[typeof(TSignal)].Remove(callback);
+
+            if (eventDictionary[typeof(TSignal)].Count == 0) eventDictionary.Remove(typeof(TSignal));
         }
     }
 
@@ -44,6 +46,8 @@ public class EventHub
         if (eventDictionary.ContainsKey(type))
         {
             eventDictionary[type].Remove(callback);
+
+            if (eventDictionary[type].Count == 0) eventDictionary.Remove(type);
         }
     }
 
